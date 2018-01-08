@@ -1,0 +1,67 @@
+{
+  "name": "covalent-tooling",
+  "version": "1.0.0-rc.2",
+  "private": true,
+  "description": "Tooling and Scripts for Covalent",
+  "keywords": [
+    "angular",
+    "components",
+    "reusable"
+  ],
+  "scripts": {
+    "lint": "npm run tslint && npm run stylelint",
+    "tslint": "./node_modules/.bin/tslint --format codeFrame -c ./tslint.json \"./src/**/*.ts\" -e \"./src/**/typings.d.ts\" -e \"./src/environments/**\"",
+    "stylelint": "./node_modules/.bin/stylelint 'src/**/*.scss' '!**/_layout.scss' '!**/markdown.component.scss' --config .stylelintrc.json --syntax scss",
+    "reinstall": "rm -rf node_modules tmp deploy dist && yarn install && npm rebuild node-sass",
+    "reinstall:latest": "rm -rf node_modules tmp deploy dist && npm install",
+    "test": "ng test --code-coverage --single-run --sourcemap=false",
+    "bump-dev": "gulp bump-version",
+    "bump-patch": "gulp bump-version --ver patch",
+    "bump-minor": "gulp bump-version --ver minor",
+    "bump-major": "gulp bump-version --ver major",
+    "build:release": "bash scripts/build-release",
+    "publish:npm": "npm run build:release && bash scripts/npm-publish",
+    "release:start": "bash scripts/start-release",
+    "release:finish": "bash scripts/finish-release",
+    "generate:changelog": "./node_modules/.bin/conventional-changelog -i docs/CHANGELOG.md -s -p angular"
+  },
+  "engines": {
+    "node": ">=6.11.1",
+    "npm": ">3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teradata/covalent-tooling.git"
+  },
+  "bugs": {
+    "url": "https://github.com/teradata/covalent-tooling/issues"
+  },
+  "license": "MIT",
+  "author": "Teradata UX",
+  "devDependencies": {
+    "autoprefixer": "7.1.2",
+    "codelyzer": "~4.0.0",
+    "conventional-changelog-cli": "^1.3.5",
+    "jasmine-core": "~2.5.2",
+    "karma": "~1.4.1",
+    "karma-chrome-launcher": "~2.0.0",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.3.0",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-phantomjs-launcher": "1.0.1",
+    "node-sass": "3.8.0",
+    "phantomjs-prebuilt": "2.1.14",
+    "protractor": "~5.1.0",
+    "require-dir": "0.3.0",
+    "semver": "5.2.0",
+    "stylelint": "^8.4.0",
+    "ts-node": "^3.0.4",
+    "tslint": "5.2.0",
+    "typescript": "~2.4.2",
+    "uglify-js": "^2.8.14",
+    "webpack-bundle-analyzer": "^2.9.1",
+    "webpack-stats-plugin": "^0.1.5"
+  }
+}
