@@ -1,0 +1,75 @@
+{
+  "name": "was-tested",
+  "description": "Code coverage proxy",
+  "version": "0.0.0-semantic-release",
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "bin": {
+    "was-tested": "./index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/bahmutov/was-tested/issues"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [
+        "npm test"
+      ],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  },
+  "contributors": [],
+  "dependencies": {
+    "check-more-types": "2.20.2",
+    "ecstatic": "1.4.0",
+    "http-proxy": "1.13.2",
+    "istanbul": "0.4.3",
+    "lazy-ass": "1.4.0",
+    "optimist": "0.6.1",
+    "quote": "0.4.0",
+    "rimraf": "2.5.2",
+    "update-notifier": "0.6.3",
+    "ws": "1.1.0"
+  },
+  "devDependencies": {
+    "http-server": "0.9.0",
+    "pre-git": "3.8.3",
+    "semantic-release": "6.2.1",
+    "standard": "6.0.8",
+    "standard-format": "2.1.1"
+  },
+  "engines": {
+    "node": "> 0.10.*"
+  },
+  "homepage": "https://github.com/bahmutov/was-tested",
+  "keywords": [
+    "code",
+    "coverage",
+    "istanbul",
+    "proxy",
+    "test",
+    "testing",
+    "testing"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bahmutov/was-tested.git"
+  },
+  "scripts": {
+    "demo-8080": "node index.js --target http://localhost:8080",
+    "demo-foo-bar": "node index.js --target http://glebbahmutov.com/foo-bar/ --host glebbahmutov.com",
+    "format": "standard-format -w *.js src/*.js",
+    "lint": "standard --verbose *.js src/*.js",
+    "pretest": "npm run format && npm run lint",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "echo Write tests",
+    "local-demo-server": "http-server -p 3003 -c-1 test/simple-server",
+    "local-demo-proxy": "node index.js --target http://localhost:3003"
+  }
+}
