@@ -7,6 +7,7 @@ var fs = require('fs')
 var path = require('path')
 
 var getReportUrlPrefix = '__report'
+var genReportUrlPrefix = '__genreport'
 
 function writeCoverageReports (coverageOptions, coverage) {
   la(check.object(coverage), 'missing coverage object')
@@ -38,11 +39,11 @@ function writeCoverageReports (coverageOptions, coverage) {
   var collector = new Collector()
   collector.add(coverage)
 
-  var Report = istanbul.Report
+  /*var Report = istanbul.Report
   var summaryReport = Report.create('text-summary')
   summaryReport.writeReport(collector)
   var htmlReport = Report.create('html')
-  htmlReport.writeReport(collector, true)
+  htmlReport.writeReport(collector, true)*/
 
   console.log('saved coverage reports')
 }
@@ -63,6 +64,11 @@ function configDispatch (options, coverageOptions) {
 
   function isGetReportRequest (url) {
     var urlRegexp = new RegExp('^/' + getReportUrlPrefix + '/?')
+    return urlRegexp.test(url)
+  }
+
+  function isGenerateReportRequest(url) {
+    var urlRegexp = new RegExp('^/' + genReportUrlPrefix + '/?')
     return urlRegexp.test(url)
   }
 
@@ -101,7 +107,13 @@ function configDispatch (options, coverageOptions) {
     // and then proxy the request.
     console.log(req.method, req.url)
 
-    if (req.method === 'GET' && isGetReportRequest(req.url)) {
+    if (req.method === 'GET' && isGenerateReportRequest(req.url)) {
+      var Report = istanbul.Report
+      var summaryReport = Report.create('text-summary')
+      summaryReport.writeReport(collector)
+      var htmlReport = Report.create('html')
+      htmlReport.writeReport(collector, true)
+    } else if (req.method === 'GET' && isGetReportRequest(req.url)) {
       console.log('coverage report', req.url)
       reportServer(req, res)
     } else if (req.method === 'GET' && /^\/__reset\/?/.test(req.url)) {

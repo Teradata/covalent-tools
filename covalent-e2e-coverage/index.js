@@ -29,7 +29,7 @@ console.log(pkg.name, 'starting in', process.cwd())
 la(check.unemptyString(program.target), 'missing target server url', program)
 
 function prepareSaveDir () {
-  var saveToFolder = './scripts/'
+  var saveToFolder = './e2e-coverage/'
   if (!fs.existsSync(saveToFolder)) {
     fs.mkdirSync(saveToFolder)
   }
@@ -154,6 +154,26 @@ function prepareResponseSelectors (proxyRes, req, res) {
   }
 }
 
+function copyMappingFile(url) {
+  http.get(url, (resp) => {
+    let data = '';
+
+    // A chunk of data has been recieved.
+    resp.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    // The whole response has been received. Save out the result.
+    resp.on('end', () => {
+      console.log('Save Mapping File: ' + url);
+      saveSourceFile(data, url)
+    });
+
+  }).on("error", (err) => {
+    console.log("Error: " + err.message);
+  });
+}
+
 //
 // Create a proxy server with custom application logic
 //
@@ -174,6 +194,7 @@ proxy.on('proxyReq', function (proxyReq) {
   if (program.host) {
     proxyReq.setHeader('Host', program.host)
   }
+  proxyReq.setHeader('Cache-Control', 'no-cache');
 })
 
 proxy.on('proxyRes', function (proxyRes, req, res) {
@@ -181,6 +202,10 @@ proxy.on('proxyRes', function (proxyRes, req, res) {
   if (shouldBeInstrumented(req.url)) {
     console.log('will instrument', req.url)
     prepareResponseSelectors(proxyRes, req, res)
+    // Get the Mapping file for this Javascript
+    if (!req.url.endsWith('.map')) {
+      copyMappingFile('http://localhost:' + program.port + req.url + '.map')
+    }
   }
 })
 

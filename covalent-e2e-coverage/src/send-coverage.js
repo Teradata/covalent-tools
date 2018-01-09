@@ -43,7 +43,7 @@ function setupCoverageSend () {
       if (!window.__coverage__) {
         throw new Error('Cannot find __coverage__ object')
       }
-      var interval = setInterval(function sendCoverage () { // eslint-disable-line no-unused-vars
+      /*var interval = setInterval(function sendCoverage () { // eslint-disable-line no-unused-vars
         if (shouldSendCoverage(window.__coverage__)) {
           console.log('sending coverage to the server')
           var request = new window.XMLHttpRequest()
@@ -51,7 +51,14 @@ function setupCoverageSend () {
           request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
           request.send(JSON.stringify(window.__coverage__))
         }
-      }, 5000)
+      }, 5000)*/
+      window.addEventListener('beforeunload', function (event) {
+        console.log('sending coverage to the server')
+        var request = new window.XMLHttpRequest()
+        request.open('POST', '/__coverage', true)
+        request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
+        request.send(JSON.stringify(window.__coverage__))
+      });
       window.__sendCoverageSetup = true
     }())
   }

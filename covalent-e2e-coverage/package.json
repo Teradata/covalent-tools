@@ -9,18 +9,6 @@
   "bugs": {
     "url": "https://github.com/bahmutov/was-tested/issues"
   },
-  "config": {
-    "pre-git": {
-      "commit-msg": "simple",
-      "pre-commit": [
-        "npm test"
-      ],
-      "pre-push": [],
-      "post-commit": [],
-      "post-checkout": [],
-      "post-merge": []
-    }
-  },
   "contributors": [],
   "dependencies": {
     "check-more-types": "2.20.2",
@@ -32,7 +20,8 @@
     "quote": "0.4.0",
     "rimraf": "2.5.2",
     "update-notifier": "0.6.3",
-    "ws": "1.1.0"
+    "ws": "1.1.0",
+    "remap-istanbul": "0.9.5"
   },
   "devDependencies": {
     "http-server": "0.9.0",
@@ -70,6 +59,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "echo Write tests",
     "local-demo-server": "http-server -p 3003 -c-1 test/simple-server",
-    "local-demo-proxy": "node index.js --target http://localhost:3003"
+    "local-demo-proxy": "node index.js --target http://localhost:3003",
+    "start": "node index.js --target http://localhost:4200 --instrument \"main.889c7f5ec655ccbf4ec7.bundle.js\""
   }
 }
