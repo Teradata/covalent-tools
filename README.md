@@ -25,3 +25,5 @@ Covalent Tooling is a set of tools to help with building, testing, and deploying
 * Run local build `npm run serve` or `npm run serve:prod`
 * If using yarn locally, `npm rebuild node-sass` is required for https://github.com/yarnpkg/yarn/issues/1981 as of `v0.22.0`
 ---
+
+* [E2E Testing Coverage](covalent-e2e-coverage)
