@@ -31,7 +31,7 @@ To instrument e2e coverage for a Typescript project do the following:
 }
 ```
 * Start up the above repo with e2e tests in it with the command `npm run serve:prod`
-* Edit the package.json of the repo that has the e2e tests in it to point to the covalent-e2e-coverage proxy instead:
+* Edit the package.json of the repo that has the e2e tests in it to point to the covalent-e2e-coverage proxy instead (default runs on port 5050):
 ```
 "scripts": {
 "e2e": "ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050",
