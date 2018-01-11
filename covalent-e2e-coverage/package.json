@@ -60,7 +60,7 @@
     "test": "echo Write tests",
     "local-demo-server": "http-server -p 3003 -c-1 test/simple-server",
     "local-demo-proxy": "node index.js --target http://localhost:3003",
-    "start": "cd e2e-coverage && node ../index.js --target http://localhost:4200 --instrument \"main.889c7f5ec655ccbf4ec7.bundle.js\"",
+    "start": "cd e2e-coverage && node ../index.js --target http://localhost:4200 --instrument main.*.bundle.js",
     "genreport": "cd e2e-coverage && ../node_modules/.bin/remap-istanbul -i ../e2e-coverage/coverage.json -t html -o ../e2e-coverage/html-report --exclude node_modules,.*-optimizer.js,\\\\\\(webpack\\\\\\).*,.*.html"
   }
 }
