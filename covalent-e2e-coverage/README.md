@@ -1,78 +1,50 @@
-# was-tested
+# covalent-e2e-coverage
 
 > Code coverage proxy
 
-[![NPM][was-tested-icon] ][was-tested-url]
 
-[![Build status][was-tested-ci-image] ][was-tested-ci-url]
-[![dependencies][was-tested-dependencies-image] ][was-tested-dependencies-url]
-[![devdependencies][was-tested-devdependencies-image] ][was-tested-devdependencies-url]
-[![Codacy Badge][was-tested-codacy-image] ][was-tested-codacy-url]
-[![semantic-release][semantic-image] ][semantic-url]
+## Overview
 
-[was-tested-icon]: https://nodei.co/npm/was-tested.png?downloads=true
-[was-tested-url]: https://npmjs.org/package/was-tested
-[was-tested-ci-image]: https://travis-ci.org/bahmutov/was-tested.png?branch=master
-[was-tested-ci-url]: https://travis-ci.org/bahmutov/was-tested
-[was-tested-dependencies-image]: https://david-dm.org/bahmutov/was-tested.png
-[was-tested-dependencies-url]: https://david-dm.org/bahmutov/was-tested
-[was-tested-devdependencies-image]: https://david-dm.org/bahmutov/was-tested/dev-status.png
-[was-tested-devdependencies-url]: https://david-dm.org/bahmutov/was-tested#info=devDependencies
-[was-tested-codacy-image]: https://www.codacy.com/project/badge/c2b210ee4fde4f21a7f9c6cc41078e30
-[was-tested-codacy-url]: https://www.codacy.com/public/bahmutov/was-tested.git
-[semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-[semantic-url]: https://github.com/semantic-release/semantic-release
+Code Coverage Proxy built off of `was-tested` and `remap-istanbul`.  The `was-tested` code coverage proxy was built for vanilla javascript source files.  Covalent-e2e-coverage uses the `remap-istanbul` package to utilize the source map files and to instrument coverage when using Typescript files as well.
+
+The [remap-istanbul](https://github.com/SitePen/remap-istanbul) github repository.
+
+The [was-tested](https://github.com/bahmutov/was-tested) github repository.
+
+Read the [was-tested Code coverage proxy](https://glebbahmutov.com/blog/code-coverage-proxy/) blog post.
+
+![overview](https://github.com/Teradata/covalent-tools/blob/feature/coverage-e2e/covalent-e2e-coverage/images/was-tested-overview.png?raw=true)
 
 
+### Usage
 
-![overview](https://raw.githubusercontent.com/bahmutov/was-tested/master/images/was-tested-overview.png)
+To instrument e2e coverage for a Typescript project do the following:
 
-Read [Code coverage proxy](https://glebbahmutov.com/blog/code-coverage-proxy/) blog post.
-
+* Clone this repository
+* Startup the covalent-e2e-coverage proxy in this repo by running `npm run start
+* Checkout another repo that has e2e tests in it
+* Edit the package.json in the other repo to run in production mode, but with source maps turned on:
 ```
-was-tested - Code coverage proxy
-  version: 0.0.0-semantic-release
-  author: "Gleb Bahmutov <gleb.bahmutov@gmail.com>"
-
-Options:
-  --version, -v     show version and exit                               [default: false]
-  --target, -t      target server url                                   [default: "http://127.0.0.1:3003"]
-  --host, -H        the http host header                                [default: false]
-  --rehost, -z      The host to rewrite to in the event of a redirect.  [default: false]
-  --port, -p        local proxy port                                    [default: 5050]
-  --instrument, -i  instrument url RegExp                               [default: "app.js$"]
-  --reset, -r       erase previously collected coverage                 [default: false]
-  --folder, -f      working folder                                      [default: null]
-
+"scripts": {
+"serve:prod": "node --max_old_space_size=5048 ./node_modules/.bin/ng serve --aot --prod --sourcemap=true --build-optimizer --proxy-config proxy.conf.json",
+...
+}
 ```
-
-Works well with [tested-commits](https://github.com/bahmutov/tested-commits).
-
-### Use against github pages
-
-To instrument static pages on github, for example [glebbahmutov.com/foo-bar/](http://glebbahmutov.com/foo-bar/)
-that points to gh-pages branch in [foo-bar](https://github.com/bahmutov/foo-bar) use `--host` option.
-
-`was-tested --target http://glebbahmutov.com/foo-bar/ --host "glebbahmutov.com"`
-
-then open `localhost:5050` in the browser.
-
-### Small print
-
-Author: Gleb Bahmutov &copy; 2014
-
-* [@bahmutov](https://twitter.com/bahmutov)
-* [glebbahmutov.com](http://glebbahmutov.com)
-* [blog](https://glebbahmutov.com/blog/)
-
-License: MIT - do anything with the code, but don't blame me if it does not work.
-
-Spread the word: tweet, star on github, etc.
-
-Support: if you find any problems with this module, email / tweet /
-[open issue](https://github.com/bahmutov/was-tested/issues) on Github
-
-
+* Start up the above repo with e2e tests in it with the command `npm run serve:prod`
+* Edit the package.json of the repo that has the e2e tests in it to point to the covalent-e2e-coverage proxy instead:
+```
+"scripts": {
+"e2e": "ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050",
+...
+}
+```
+* Run the e2e tests from above with the command, `npm run e2e`
+* After completed either hit the genreport endpoint: http://localhost:5050/__genreport
+or 
+* Run the npm script to generate the report: `npm run genreport`
+* In the browser go to: http://localhost:5050/__report/
+* See Coverage Report
+* Click down into links and see Typescript files
 
 ## MIT License
 
@@ -80,21 +52,24 @@ The MIT License (MIT)
 
 Copyright (c) 2014 Gleb Bahmutov
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
+Copyright (c) 2018 by Teradata. All rights reserved. http://teradata.com
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 
