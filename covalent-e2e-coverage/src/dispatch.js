@@ -2,9 +2,13 @@ var la = require('lazy-ass')
 var check = require('check-more-types')
 var ecstatic = require('ecstatic')
 var istanbul = require('istanbul')
+var loadCoverage = require('remap-istanbul/lib/loadCoverage')
+var remap = require('remap-istanbul/lib/remap')
+var writeReport = require('remap-istanbul/lib/writeReport')
 var Collector = istanbul.Collector
 var fs = require('fs')
 var path = require('path')
+var spawnSync = require('child_process').spawnSync
 
 var getReportUrlPrefix = '__report'
 var genReportUrlPrefix = '__genreport'
@@ -108,11 +112,20 @@ function configDispatch (options, coverageOptions) {
     console.log(req.method, req.url)
 
     if (req.method === 'GET' && isGenerateReportRequest(req.url)) {
-      var Report = istanbul.Report
-      var summaryReport = Report.create('text-summary')
-      summaryReport.writeReport(collector)
-      var htmlReport = Report.create('html')
-      htmlReport.writeReport(collector, true)
+      var saveFolder = path.resolve(coverageOptions.saveFolder)
+      var coverageFilename = path.join(saveFolder, 'coverage.json')
+      var coverageReportDir = path.join(saveFolder, 'html-report')
+      var output = spawnSync(saveFolder + '/../node_modules/.bin/remap-istanbul', ['-i', coverageFilename, '-t', 'html', '-o', coverageReportDir, '--exclude', 'node_modules,.*-optimizer.js,\\\(webpack\\\).*,.*.html'], {
+        cwd: process.cwd(),
+        env: process.env,
+        stdio: 'pipe',
+        encoding: 'utf-8'
+      })
+      if(output.stderr) {
+        console.error(output.stderr);
+      }
+      res.writeHead(200)
+      res.end()
     } else if (req.method === 'GET' && isGetReportRequest(req.url)) {
       console.log('coverage report', req.url)
       reportServer(req, res)

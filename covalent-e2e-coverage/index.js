@@ -29,7 +29,7 @@ console.log(pkg.name, 'starting in', process.cwd())
 la(check.unemptyString(program.target), 'missing target server url', program)
 
 function prepareSaveDir () {
-  var saveToFolder = './e2e-coverage/'
+  var saveToFolder = './'
   if (!fs.existsSync(saveToFolder)) {
     fs.mkdirSync(saveToFolder)
   }
@@ -52,9 +52,10 @@ la(check.fn(setupCoverageSend), 'missing send coverage function')
 
 var coverageFilename = path.join(saveFolder, 'coverage.json')
 
+var coverageReportDir = path.join(saveFolder, 'html-report')
 var coverageOptions = {
   coverageFilename: coverageFilename,
-  savedReportDir: savedReportDir,
+  savedReportDir: coverageReportDir,
   saveFolder: saveFolder
 }
 
