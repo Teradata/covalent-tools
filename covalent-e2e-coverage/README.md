@@ -21,6 +21,7 @@ Read the [was-tested Code coverage proxy](https://glebbahmutov.com/blog/code-cov
 To instrument e2e coverage for a Typescript project do the following:
 
 * Clone this repository
+* cd covalent-e2e-coverage
 * Startup the covalent-e2e-coverage proxy in this repo by running `npm run start`
 * Checkout another repo that has e2e tests in it
 * Edit the package.json in the other repo to run in production mode, but with source maps turned on:
