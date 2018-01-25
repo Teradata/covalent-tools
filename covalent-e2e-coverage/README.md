@@ -13,7 +13,7 @@ The [was-tested](https://github.com/bahmutov/was-tested) github repository.
 
 Read the [was-tested Code coverage proxy](https://glebbahmutov.com/blog/code-coverage-proxy/) blog post.
 
-![overview](https://github.com/Teradata/covalent-tools/blob/feature/coverage-e2e/covalent-e2e-coverage/images/was-tested-overview.png?raw=true)
+![overview](https://raw.githubusercontent.com/Teradata/covalent-tools/develop/covalent-e2e-coverage/images/was-tested-overview.png)
 
 
 ### Usage
