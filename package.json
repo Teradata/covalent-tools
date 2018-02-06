@@ -2,7 +2,7 @@
   "name": "covalent-tooling",
   "version": "1.0.0-rc.2",
   "private": true,
-  "description": "Tooling and Scripts for Covalent",
+  "description": "Tooling, Scripts, and CLI for Covalent",
   "keywords": [
     "angular",
     "components",
