@@ -8,6 +8,10 @@
     "components",
     "reusable"
   ],
+  "bin": {
+    "cov": "./bin/covalent.js",
+    "covalent": "./bin/covalent.js"
+  },
   "scripts": {
     "lint": "npm run tslint && npm run stylelint",
     "tslint": "./node_modules/.bin/tslint --format codeFrame -c ./tslint.json \"./src/**/*.ts\" -e \"./src/**/typings.d.ts\" -e \"./src/environments/**\"",
@@ -23,7 +27,11 @@
     "publish:npm": "npm run build:release && bash scripts/npm-publish",
     "release:start": "bash scripts/start-release",
     "release:finish": "bash scripts/finish-release",
-    "generate:changelog": "./node_modules/.bin/conventional-changelog -i docs/CHANGELOG.md -s -p angular"
+    "generate:changelog": "./node_modules/.bin/conventional-changelog -i docs/CHANGELOG.md -s -p angular",
+    "clean": "rimraf bin",
+    "tsc": "tsc --outDir bin",
+    "build": "npm run clean && npm run tsc",
+    "tsc:watch": "npm run build && npm run tsc -- -w"
   },
   "engines": {
     "node": ">=8.9.4",
@@ -57,10 +65,12 @@
     "protractor": "~5.1.0",
     "require-dir": "0.3.0",
     "semver": "5.2.0",
+    "rimraf": "^2.6.2",
+    "@types/node": "^8.0.53",
     "stylelint": "^8.4.0",
     "ts-node": "^3.0.4",
-    "tslint": "5.2.0",
-    "typescript": "~2.4.2",
+    "tslint": "5.8.0",
+    "typescript": "~2.6.2",
     "uglify-js": "^2.8.14",
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-stats-plugin": "^0.1.5"
