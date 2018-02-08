@@ -4,6 +4,7 @@
 /**/dist
 /deploy
 /tmp
+/bin
 
 # dependencies
 /node_modules
