@@ -1,74 +1,22 @@
 #!/usr/bin/env node
 
-const argc = process.argv.splice(2);
+/*
+ * Copyright (C) 2016-2018 by Teradata Corporation. All rights reserved.
+ * TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
+ */
 
-if (argc.length != 1) {
-  console.error(`Invalid number of arguments ${argc}`);
-  process.exit(1);
-}
+import * as program from 'commander';
+import Versions from './commands/versions';
+import StartE2EProxy from './commands/start-e2e-proxy';
+import GenerateE2EReport from './commands/generate-e2e-report';
 
-const inputParameter = argc[0];
+program
+  .version('0.0.1')
+  .option('-v, --all-versions', 'output the version information')
+  .option('-g, --gen-e2e-report', 'generate the e2e coverage report')
+  .option('-s, --start-e2e-proxy', 'start the e2e proxy')
+  .parse(process.argv);
 
-if (inputParameter === '-v') {
-
-  const logo = `
-                            *//                            
-                        ,****/////,                        
-                     ********/////////                     
-                  *********     /////////                  
-              *********.    *//    ./////////              
-           *********     ****/////     /////////           
-       *********,    ********////////*    */////////       
-   .*********     ***********////////////     /////////.   
- ********,    ***************///////////////*    *///////* 
- ,****     **********  ******//////*  //////////     ////. 
- .****  *********          **///         .////////*  ////  
-  ****  ,*****                   .******     /////.  ////  
-  ****   ****                  ***********/  .////  .////  
-  ****.  ****                  ****/**/////  .////  *////  
-  ****,  ****                  ******//////  .////  /////  
-  *****  ****                  ******//////  .////  /////  
-  *****  ****                   .****////    .////  /////  
-  *****  *******.           ***     *     ,///////  ////*  
-  *****  ***********    ***********    ///////////  ////.  
-  .****  ,***********  **********///  ///////////,  ////   
-   ****  .***********  ******///////  ///////////   ////   
-   ****   ***********  ******///////  ///////////  .////   
-   ****   ***********   *****//////   ///////////  *////   
-   ******    *********,    .*//     *////////*    //////   
-   *********     *********       /////////     ////////,   
-      ,********     *********./////////     ////////.      
-          ********,    ******///////    *////////          
-             *********    ***////    /////////             
-                *********    .    ////////*                
-                   ,********  .////////.                   
-                       ******///////                       
-                          ***////                                                                                 
-                                                                                                      
-`;
-
-  console.log(logo);
-  let localPackageJson: any = require(process.cwd() + '/package.json');
-  let cliPackageJson: any = require(__dirname + '/../package.json');
-
-  if (cliPackageJson && cliPackageJson.version) {
-    console.log("Covalent CLI Version: " + cliPackageJson.version);
-  }
-  if (localPackageJson && localPackageJson.dependencies) {
-    if (localPackageJson.dependencies['@covalent/core']) {
-      console.log("Covalent Version: " + localPackageJson.dependencies["@covalent/core"]);
-    }
-    if (localPackageJson.dependencies['@angular/core']) {
-      console.log("Angular Version: " + localPackageJson.dependencies["@angular/core"]);
-    }
-    if (localPackageJson.dependencies['@angular/material']) {
-      console.log("Angular Material Version: " + localPackageJson.dependencies["@angular/material"]);
-    }
-  }
-  if (localPackageJson && localPackageJson.devDependencies) {
-    if (localPackageJson.devDependencies['@angular/cli']) {
-      console.log("Angular CLI Version: " + localPackageJson.devDependencies["@angular/cli"]);
-    }
-  }
-  console.log("");
-}
+if (program.allVersions) (new Versions()).execute();
+if (program.genE2eReport) (new StartE2EProxy()).execute();
+if (program.startE2eProxy) (new GenerateE2EReport()).execute();

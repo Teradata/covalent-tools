@@ -31,7 +31,8 @@
     "clean": "rimraf bin",
     "tsc": "tsc --outDir bin",
     "build": "npm run clean && npm run tsc",
-    "tsc:watch": "npm run build && npm run tsc -- -w"
+    "tsc:watch": "npm run build && npm run tsc -- -w",
+    "all": "npm run build && npm pack && npm -g install covalent-tooling-1.0.0-rc.2.tgz"
   },
   "engines": {
     "node": ">=8.9.4",
@@ -73,6 +74,7 @@
     "typescript": "~2.6.2",
     "uglify-js": "^2.8.14",
     "webpack-bundle-analyzer": "^2.9.1",
-    "webpack-stats-plugin": "^0.1.5"
+    "webpack-stats-plugin": "^0.1.5",
+    "commander": "^2.14.1"
   }
 }
