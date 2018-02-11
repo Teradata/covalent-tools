@@ -1,12 +1,13 @@
 {
-  "name": "covalent-tooling",
-  "version": "1.0.0-rc.2",
+  "name": "@covalent/tools",
+  "version": "1.0.0-alpha.1",
   "private": true,
-  "description": "Tooling and Scripts for Covalent",
+  "description": "Tooling and Scripts for Covalent Applications",
   "keywords": [
     "angular",
-    "components",
-    "reusable"
+    "covalent",
+    "cli",
+    "scripts"
   ],
   "scripts": {
     "lint": "npm run tslint && npm run stylelint",
@@ -31,10 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/teradata/covalent-tooling.git"
+    "url": "https://github.com/teradata/covalent-tools.git"
   },
   "bugs": {
-    "url": "https://github.com/teradata/covalent-tooling/issues"
+    "url": "https://github.com/teradata/covalent-tools/issues"
   },
   "license": "MIT",
   "author": "Teradata UX",
