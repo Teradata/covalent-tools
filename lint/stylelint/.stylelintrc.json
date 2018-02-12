@@ -1,6 +1,6 @@
 {
   "plugins": [
-    "./tools/stylelint/selector-no-deprecated-deep/index.js"
+    "./selector-no-deprecated-deep/index.js"
   ],
   "rules": {
     "td/selector-no-deprecated-deep": true,
