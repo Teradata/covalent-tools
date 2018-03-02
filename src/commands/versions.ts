@@ -66,5 +66,6 @@ export default class Versions implements iCommand {
         console.log(blue("Angular CLI Version: " + localPackageJson.devDependencies["@angular/cli"]));
       }
     }
+    console.log('');
   }
 }
