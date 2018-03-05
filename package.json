@@ -50,7 +50,8 @@
   "license": "MIT",
   "author": "Teradata UX",
   "dependencies": {
-    "colors": "^1.2.0-rc0"
+    "colors": "^1.2.0-rc0",
+    "node-emoji": "^1.8.1"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",
@@ -72,6 +73,7 @@
     "semver": "5.2.0",
     "rimraf": "^2.6.2",
     "@types/node": "^8.0.53",
+    "@types/node-emoji": "^1.8.0",
     "stylelint": "^8.4.0",
     "ts-node": "^3.0.4",
     "tslint": "^5.9.1",
