@@ -18,5 +18,5 @@ program
   .parse(process.argv);
 
 if (program.allVersions) (new Versions()).execute();
-if (program.genE2eReport) (new StartE2EProxy()).execute();
-if (program.startE2eProxy) (new GenerateE2EReport()).execute();
+if (program.genE2eReport) (new GenerateE2EReport()).execute();
+if (program.startE2eProxy) (new StartE2EProxy()).execute();

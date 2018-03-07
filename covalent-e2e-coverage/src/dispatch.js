@@ -19,7 +19,7 @@ function writeCoverageReports (coverageOptions, coverage) {
   // change names to file paths
   Object.keys(coverage).forEach(function (name) {
     la(check.unemptyString(coverage[name].path), 'missing path for', name)
-    coverage[name].path = './' + path.join(coverageOptions.saveFolder, name)
+    coverage[name].path = path.join(coverageOptions.saveFolder, name)
     console.log('mapped', name, 'to', coverage[name].path)
   })
 
@@ -37,7 +37,7 @@ function writeCoverageReports (coverageOptions, coverage) {
   Object.keys(coverage).forEach(function (name) {
     var c = coverage[name]
     delete coverage[name]
-    coverage['./' + name] = c
+    coverage[name] = c
   })
 
   var collector = new Collector()
