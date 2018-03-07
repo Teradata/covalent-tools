@@ -4,5 +4,5 @@
  */
 
 export interface iCommand {
-  execute(): void;
+  execute(commands?: string[]): void;
 }
