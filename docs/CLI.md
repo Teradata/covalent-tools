@@ -24,44 +24,75 @@ To instrument e2e coverage for a Typescript project do the following:
 * npm i
 * npm run build
 * npm install -g
-* Startup the covalent-e2e-coverage proxy in this repo by running:
+
+The following commands are available in the CLI
+
+Prints out all versions numbers for Covalent CLI, Covalent Version, Angular, Angular Material Version, and Angular CLI for the directory you are currently in
+```
+cov -v
+```
+
+Starts the e2e coverage proxy (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
 ```
 cov -s
 or
 cov --start-e2e-proxy
 ```
-* Checkout another repo that has e2e tests in it
-* Edit the package.json in the other repo to run in production mode, but with source maps turned on:
-```
-"scripts": {
-"serve:prod": "node --max_old_space_size=5048 ./node_modules/.bin/ng serve --aot --prod --sourcemap=true --build-optimizer --proxy-config proxy.conf.json",
-...
-}
-```
-* Start up the above repo with e2e tests in it with the command `npm run serve:prod`
-* Edit the package.json of the repo that has the e2e tests in it to point to the covalent-e2e-coverage proxy instead (default runs on port 5050):
-```
-"scripts": {
-"e2e": "ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050",
-...
-}
-```
-* Run the e2e tests from above with the command, `npm run e2e`
-* Generate the coverage report with the command:
+
+Generate the e2e coverage report (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
 ```
 cov -g
 or
 cov --gen-e2e-report
 ```
-* In the browser go to: http://localhost:5050/__report/
-* See Coverage Report
-* Click down into links and see Typescript files
+Same as ng serve --proxy-config proxy.conf.json
+```
+cov serve
+```
+
+Same as ng e2e --config --proxy-config e2e/proxy.conf.json
+```
+cov e2e
+```
+
+Same as tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**
+```
+cov lint
+```
+
+Same as ng test --code-coverage --single-run --sourcemap=false
+```
+cov test
+```
+
+Same as node --max_old_space_size=8192 ./node_modules/.bin/ng build --aot --prod --sourcemap=false
+
+```
+cov build
+```
+
+Help Usage
+```
+cov -h
+Usage: cov [options]
+
+Options:
+
+-V, --version output the version number
+-v, --all-versions output the version information
+-g, --gen-e2e-report generate the e2e coverage report
+-s, --start-e2e-proxy start the e2e proxy
+serve starts the ng server
+e2e runs the end to end tests
+lint runs the linter
+test runs the unit tests
+build builds the code
+-h, --help output usage information
+```
 
 ## MIT License
 
 The MIT License (MIT)
-
-Copyright (c) 2014 Gleb Bahmutov
 
 Copyright (c) 2018 by Teradata. All rights reserved. http://teradata.com
 
