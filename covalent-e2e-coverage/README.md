@@ -30,14 +30,14 @@ cov -s
 or
 cov --start-e2e-proxy
 ```
-* Checkout another repo that has e2e tests in it
+* Checkout another repo that has e2e tests in it in a new command prompt
 * cd to that directory
 * Start the ng server with the needed flags by running command:
 ```
 cov serve-e2e
 ```
 
-* cd again to the directory that has the e2e tests in it
+* Open another command prompt and cd again to the directory that has the e2e tests in it
 * Run the e2e tests with needed flags by running command:
 ```
 cov -e
@@ -45,13 +45,13 @@ or
 cov --e2e-for-coverage
 ```
 
-* Run the e2e tests from above with the command, `npm run e2e`
-* Generate the coverage report with the command:
+* Open another command prompt and generate the coverage report with the command:
 ```
 cov -g
 or
 cov --gen-e2e-report
 ```
+
 * In the browser go to: http://localhost:5050/__report/
 * See Coverage Report
 * Click down into links and see Typescript files
