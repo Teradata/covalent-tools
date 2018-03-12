@@ -86,14 +86,16 @@ cov lint
 ```
 
 ##### E2E Code Coverage
-* Starts the e2e coverage proxy (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
+(Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
+
+* Starts the e2e coverage proxy 
 ```
 cov -s
 or
 cov --start-e2e-proxy
 ```
 
-* Generate the e2e coverage report (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
+* Generate the e2e coverage report
 ```
 cov -g
 or
