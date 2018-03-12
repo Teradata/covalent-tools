@@ -1,19 +1,8 @@
-# covalent-e2e-coverage
-
-> Code coverage proxy
-
+# covalent cli
 
 ## Overview
 
-Code Coverage Proxy built off of `was-tested` and `remap-istanbul`.  The `was-tested` code coverage proxy was built for vanilla javascript source files.  Covalent-e2e-coverage uses the `remap-istanbul` package to utilize the source map files and to instrument coverage when using Typescript files as well.
-
-The [remap-istanbul](https://github.com/SitePen/remap-istanbul) github repository.
-
-The [was-tested](https://github.com/bahmutov/was-tested) github repository.
-
-Read the [was-tested Code coverage proxy](https://glebbahmutov.com/blog/code-coverage-proxy/) blog post.
-
-![overview](https://raw.githubusercontent.com/Teradata/covalent-tools/develop/covalent-e2e-coverage/images/was-tested-overview.png)
+CLI (Command Line Interface) for Covalent.
 
 
 ### Usage
