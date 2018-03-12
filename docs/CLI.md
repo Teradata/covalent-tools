@@ -86,13 +86,25 @@ cov lint
 ```
 
 ##### E2E Code Coverage
-(Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
+(For full instructions see here: [E2E Testing Coverage](../covalent-e2e-coverage))
 
 * Starts the e2e coverage proxy 
 ```
 cov -s
 or
 cov --start-e2e-proxy
+```
+
+* Start the ng server with the needed e2e flags:
+```
+cov serve-e2e
+```
+
+* Run the e2e tests with needed flags:
+```
+cov -e
+or
+cov --e2e-for-coverage
 ```
 
 * Generate the e2e coverage report

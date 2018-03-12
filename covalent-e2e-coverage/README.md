@@ -30,6 +30,7 @@ cov -s
 or
 cov --start-e2e-proxy
 ```
+
 * Checkout another repo that has e2e tests in it in a new terminal window
 * cd to that directory
 * Start the ng server with the needed flags by running command:
