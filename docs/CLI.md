@@ -16,7 +16,7 @@ To run the covalent tools cli do the following:
 
 #### The following commands are available in the CLI
 
-##### Help Usage
+#### Help Usage
 ```
 cov -h
   Usage: cov [options]
@@ -38,13 +38,13 @@ cov -h
     -h, --help              output usage information
 ```
 
-##### Versions
+#### Versions
 * Prints out all versions numbers for Covalent CLI, Covalent Version, Angular, Angular Material Version, and Angular CLI for the directory you are currently in
 ```
 cov -v
 ```
 
-##### ng Commands
+#### ng Commands
 * Same as `ng serve --proxy-config proxy.conf.json`
 ```
 cov serve
@@ -79,13 +79,13 @@ cov test
 cov build
 ```
 
-##### tslint
+#### tslint
 * Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
 ```
 cov lint
 ```
 
-##### E2E Code Coverage
+#### E2E Code Coverage
 (For full instructions see here: [E2E Testing Coverage](../covalent-e2e-coverage))
 
 * Starts the e2e coverage proxy 
