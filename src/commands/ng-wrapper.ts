@@ -26,7 +26,7 @@ export default class NgWrapper implements iCommand {
   /*
   * Special case build to call node directly
   */
-  build(commands: string[]) {
+  nodeExec(commands: string[]) {
     new Versions().execute();
     Utils.log('Running Command:');
     Utils.log('node ' + commands.join(' '), italic);

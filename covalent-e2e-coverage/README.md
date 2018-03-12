@@ -31,21 +31,20 @@ or
 cov --start-e2e-proxy
 ```
 * Checkout another repo that has e2e tests in it
-* Edit the package.json in the other repo to run in production mode, but with source maps turned on:
+* cd to that directory
+* Start the ng server with the needed flags by running command:
 ```
-"scripts": {
-"serve:prod": "node --max_old_space_size=5048 ./node_modules/.bin/ng serve --aot --prod --sourcemap=true --build-optimizer --proxy-config proxy.conf.json",
-...
-}
+cov serve-e2e
 ```
-* Start up the above repo with e2e tests in it with the command `npm run serve:prod`
-* Edit the package.json of the repo that has the e2e tests in it to point to the covalent-e2e-coverage proxy instead (default runs on port 5050):
+
+* cd again to the directory that has the e2e tests in it
+* Run the e2e tests with needed flags by running command:
 ```
-"scripts": {
-"e2e": "ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050",
-...
-}
+cov -e
+or
+cov --e2e-for-coverage
 ```
+
 * Run the e2e tests from above with the command, `npm run e2e`
 * Generate the coverage report with the command:
 ```

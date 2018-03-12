@@ -34,14 +34,30 @@ cov -g
 or
 cov --gen-e2e-report
 ```
+
 Same as `ng serve --proxy-config proxy.conf.json`
 ```
 cov serve
 ```
 
+Starts the ng server with flags needed to run e2e coverage
+Same as `node --max_old_space_size=5048 ./node_modules/.bin/ng serve --aot --prod --sourcemap=true --build-optimizer --proxy-config proxy.conf.json`
+```
+cov serve-e2e
+```
+
+Runs the end to end tests against local code base
 Same as `ng e2e --config --proxy-config e2e/proxy.conf.json`
 ```
 cov e2e
+```
+
+Runs the end to end tests against the e2e proxy
+Same as `ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050`
+```
+cov -e
+or
+cov --e2e-for-coverage
 ```
 
 Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
@@ -63,20 +79,23 @@ cov build
 Help Usage
 ```
 cov -h
-Usage: cov [options]
+  Usage: cov [options]
 
-Options:
 
--V, --version output the version number
--v, --all-versions output the version information
--g, --gen-e2e-report generate the e2e coverage report
--s, --start-e2e-proxy start the e2e proxy
-serve starts the ng server
-e2e runs the end to end tests
-lint runs the linter
-test runs the unit tests
-build builds the code
--h, --help output usage information
+  Options:
+
+    -V, --version           output the version number
+    -v, --all-versions      output the version information
+    -g, --gen-e2e-report    generate the e2e coverage report
+    -s, --start-e2e-proxy   start the e2e proxy
+    -e, --e2e-for-coverage  runs the end to end tests against the e2e proxy
+    serve                   starts the ng server
+    serve-e2e               starts the ng server with flags needed to run e2e coverage
+    e2e                     runs the end to end tests against local code base
+    lint                    runs the linter
+    test                    runs the unit tests
+    build                   builds the code
+    -h, --help              output usage information
 ```
 
 ## MIT License
