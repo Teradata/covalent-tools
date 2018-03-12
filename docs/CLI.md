@@ -44,21 +44,6 @@ cov -h
 cov -v
 ```
 
-##### E2E Code Coverage
-* Starts the e2e coverage proxy (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
-```
-cov -s
-or
-cov --start-e2e-proxy
-```
-
-* Generate the e2e coverage report (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
-```
-cov -g
-or
-cov --gen-e2e-report
-```
-
 ##### ng Commands
 * Same as `ng serve --proxy-config proxy.conf.json`
 ```
@@ -98,6 +83,21 @@ cov build
 * Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
 ```
 cov lint
+```
+
+##### E2E Code Coverage
+* Starts the e2e coverage proxy (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
+```
+cov -s
+or
+cov --start-e2e-proxy
+```
+
+* Generate the e2e coverage report (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
+```
+cov -g
+or
+cov --gen-e2e-report
 ```
 
 
