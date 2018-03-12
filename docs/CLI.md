@@ -34,27 +34,27 @@ cov -g
 or
 cov --gen-e2e-report
 ```
-Same as ng serve --proxy-config proxy.conf.json
+Same as `ng serve --proxy-config proxy.conf.json`
 ```
 cov serve
 ```
 
-Same as ng e2e --config --proxy-config e2e/proxy.conf.json
+Same as `ng e2e --config --proxy-config e2e/proxy.conf.json`
 ```
 cov e2e
 ```
 
-Same as tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**
+Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
 ```
 cov lint
 ```
 
-Same as ng test --code-coverage --single-run --sourcemap=false
+Same as `ng test --code-coverage --single-run --sourcemap=false`
 ```
 cov test
 ```
 
-Same as node --max_old_space_size=8192 ./node_modules/.bin/ng build --aot --prod --sourcemap=false
+Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng build --aot --prod --sourcemap=false`
 
 ```
 cov build
