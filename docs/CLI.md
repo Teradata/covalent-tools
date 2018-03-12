@@ -14,13 +14,37 @@ To run the covalent tools cli do the following:
 * npm run build
 * npm install -g
 
-The following commands are available in the CLI
+#### The following commands are available in the CLI
 
+##### Help Usage
+```
+cov -h
+  Usage: cov [options]
+
+
+  Options:
+
+    -V, --version           output the version number
+    -v, --all-versions      output the version information
+    -g, --gen-e2e-report    generate the e2e coverage report
+    -s, --start-e2e-proxy   start the e2e proxy
+    -e, --e2e-for-coverage  runs the end to end tests against the e2e proxy
+    serve                   starts the ng server
+    serve-e2e               starts the ng server with flags needed to run e2e coverage
+    e2e                     runs the end to end tests against local code base
+    lint                    runs the linter
+    test                    runs the unit tests
+    build                   builds the code
+    -h, --help              output usage information
+```
+
+##### Versions
 Prints out all versions numbers for Covalent CLI, Covalent Version, Angular, Angular Material Version, and Angular CLI for the directory you are currently in
 ```
 cov -v
 ```
 
+##### E2E Code Coverage
 Starts the e2e coverage proxy (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
 ```
 cov -s
@@ -35,6 +59,7 @@ or
 cov --gen-e2e-report
 ```
 
+##### ng Commands
 Same as `ng serve --proxy-config proxy.conf.json`
 ```
 cov serve
@@ -60,11 +85,6 @@ or
 cov --e2e-for-coverage
 ```
 
-Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
-```
-cov lint
-```
-
 Same as `ng test --code-coverage --single-run --sourcemap=false`
 ```
 cov test
@@ -76,27 +96,12 @@ Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng build --aot --pro
 cov build
 ```
 
-Help Usage
+##### tslint
+Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
 ```
-cov -h
-  Usage: cov [options]
-
-
-  Options:
-
-    -V, --version           output the version number
-    -v, --all-versions      output the version information
-    -g, --gen-e2e-report    generate the e2e coverage report
-    -s, --start-e2e-proxy   start the e2e proxy
-    -e, --e2e-for-coverage  runs the end to end tests against the e2e proxy
-    serve                   starts the ng server
-    serve-e2e               starts the ng server with flags needed to run e2e coverage
-    e2e                     runs the end to end tests against local code base
-    lint                    runs the linter
-    test                    runs the unit tests
-    build                   builds the code
-    -h, --help              output usage information
+cov lint
 ```
+
 
 ## MIT License
 
