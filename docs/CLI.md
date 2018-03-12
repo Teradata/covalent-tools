@@ -7,7 +7,7 @@ CLI (Command Line Interface) for Covalent.
 
 ### Usage
 
-To instrument e2e coverage for a Typescript project do the following:
+To run the covalent tools cli do the following:
 
 * Clone this repository
 * npm i
