@@ -39,20 +39,20 @@ cov -h
 ```
 
 ##### Versions
-Prints out all versions numbers for Covalent CLI, Covalent Version, Angular, Angular Material Version, and Angular CLI for the directory you are currently in
+* Prints out all versions numbers for Covalent CLI, Covalent Version, Angular, Angular Material Version, and Angular CLI for the directory you are currently in
 ```
 cov -v
 ```
 
 ##### E2E Code Coverage
-Starts the e2e coverage proxy (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
+* Starts the e2e coverage proxy (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
 ```
 cov -s
 or
 cov --start-e2e-proxy
 ```
 
-Generate the e2e coverage report (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
+* Generate the e2e coverage report (Also see here: [E2E Testing Coverage](../covalent-e2e-coverage))
 ```
 cov -g
 or
@@ -60,44 +60,42 @@ cov --gen-e2e-report
 ```
 
 ##### ng Commands
-Same as `ng serve --proxy-config proxy.conf.json`
+* Same as `ng serve --proxy-config proxy.conf.json`
 ```
 cov serve
 ```
 
-Starts the ng server with flags needed to run e2e coverage
+* Starts the ng server with flags needed to run e2e coverage
 Same as `node --max_old_space_size=5048 ./node_modules/.bin/ng serve --aot --prod --sourcemap=true --build-optimizer --proxy-config proxy.conf.json`
 ```
 cov serve-e2e
 ```
 
-Runs the end to end tests against local code base
-Same as `ng e2e --config --proxy-config e2e/proxy.conf.json`
+* Runs the end to end tests against local code base. Same as `ng e2e --config --proxy-config e2e/proxy.conf.json`
 ```
 cov e2e
 ```
 
-Runs the end to end tests against the e2e proxy
-Same as `ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050`
+* Runs the end to end tests against the e2e proxy. Same as `ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050`
 ```
 cov -e
 or
 cov --e2e-for-coverage
 ```
 
-Same as `ng test --code-coverage --single-run --sourcemap=false`
+* Same as `ng test --code-coverage --single-run --sourcemap=false`
 ```
 cov test
 ```
 
-Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng build --aot --prod --sourcemap=false`
+* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng build --aot --prod --sourcemap=false`
 
 ```
 cov build
 ```
 
 ##### tslint
-Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
+* Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
 ```
 cov lint
 ```
