@@ -10,8 +10,8 @@ export default class NgWrapper implements iCommand {
   execute(commands: string[]) {
     new Versions().execute();
     Utils.log('Running Command:');
-    Utils.log('ng ' + commands.join(' '), italic);
-    const ng = spawn('ng', commands);
+    Utils.log('node_modules/.bin/ng ' + commands.join(' '), italic);
+    const ng = spawn('node_modules/.bin/ng', commands);
 
     ng.stdout.on('data', data => {
       Utils.log(`${data}`);
