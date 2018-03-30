@@ -38,73 +38,84 @@ cov -h
     -h, --help        output usage information
 ```
 
+### Commands
+
 #### Versions
-* Prints out all versions numbers for Covalent CLI, Covalent Version, Angular, Angular Material Version, and Angular CLI for the directory you are currently in
 ```
 cov versions
 ```
+* Prints out all versions numbers for Covalent CLI, Covalent Version, Angular, Angular Material Version, and Angular CLI for the directory you are currently in
+
 
 #### ng Commands
-* Same as `ng serve --proxy-config proxy.conf.json`
 ```
 cov serve
 ```
+* Starts up the ng server with needed flags
+* Same as `ng serve --proxy-config proxy.conf.json`
 
-* Starts the ng server with flags needed to run e2e coverage
-Same as `node --max_old_space_size=5048 ./node_modules/.bin/ng serve --aot --prod --sourcemap=true --build-optimizer --proxy-config proxy.conf.json`
 ```
 cov serve-e2e
 ```
+* Starts the ng server with flags needed to run e2e coverage
+* Same as `node --max_old_space_size=5048 ./node_modules/.bin/ng serve --aot --prod --sourcemap=true --build-optimizer --proxy-config proxy.conf.json`
 
-* Runs the end to end tests against local code base. Same as `ng e2e --config --proxy-config e2e/proxy.conf.json`
 ```
 cov e2e
 ```
+* Runs the end to end tests against local code base
+* Same as `ng e2e --config --proxy-config e2e/proxy.conf.json`
 
-* Runs the end to end tests against the e2e proxy. Same as `ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050`
 ```
 cov e2e-for-coverage
 ```
+* Runs the end to end tests against the e2e proxy
+* Same as `ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050`
 
-* Same as `ng test --code-coverage --single-run --sourcemap=false`
 ```
 cov test
 ```
-
-* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng build --aot --prod --sourcemap=false`
+* Runs the unit tests
+* Same as `ng test --code-coverage --single-run --sourcemap=false`
 
 ```
 cov build
 ```
+* Compiles the code with needed flags
+* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng build --aot --prod --sourcemap=false`
 
-#### tslint
-* Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
+
 ```
 cov lint
 ```
+#### tslint
+* Run the linter on a code base
+* Same as `tslint -c ./tslint.json ./src/**/*.ts -e ./src/**/typings.d.ts -e ./src/environments/**`
+
 
 #### E2E Code Coverage
 (For full instructions see here: [E2E Testing Coverage](../covalent-e2e-coverage))
 
-* Starts the e2e coverage proxy 
 ```
 cov start-e2e-proxy
 ```
+* Starts the e2e coverage proxy 
 
-* Start the ng server with the needed e2e flags:
 ```
 cov serve-e2e
 ```
+* Start the ng server with the needed e2e flags:
 
-* Run the e2e tests with needed flags:
 ```
 cov e2e-for-coverage
 ```
+* Run the e2e tests with needed flags:
 
-* Generate the e2e coverage report
 ```
 cov gen-e2e-report
 ```
+* Generate the e2e coverage report
+
 
 
 ## MIT License
