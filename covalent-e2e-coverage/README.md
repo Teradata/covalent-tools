@@ -26,9 +26,7 @@ To instrument e2e coverage for a Typescript project do the following:
 * npm install -g
 * Startup the covalent-e2e-coverage proxy in this repo by running:
 ```
-cov -s
-or
-cov --start-e2e-proxy
+cov start-e2e-proxy
 ```
 
 * Checkout another repo that has e2e tests in it in a new terminal window
@@ -41,16 +39,12 @@ cov serve-e2e
 * Open another terminal window and cd again to the directory that has the e2e tests in it
 * Run the e2e tests with needed flags by running command:
 ```
-cov -e
-or
-cov --e2e-for-coverage
+cov e2e-for-coverage
 ```
 
 * Open another terminal window and generate the coverage report with the command:
 ```
-cov -g
-or
-cov --gen-e2e-report
+cov gen-e2e-report
 ```
 
 * In the browser go to: http://localhost:5050/__report/
