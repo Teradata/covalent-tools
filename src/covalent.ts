@@ -13,11 +13,11 @@ import NgWrapper from './commands/ng-wrapper';
 import TsLintWrapper from './commands/tslint-wrapper';
 
 program
-  .version('0.0.1')
-  .option('-v, --all-versions', 'output the version information')
-  .option('-g, --gen-e2e-report', 'generate the e2e coverage report')
-  .option('-s, --start-e2e-proxy', 'start the e2e proxy')
-  .option('-e, --e2e-for-coverage', 'runs the end to end tests against the e2e proxy')
+  .version('1.0.0-alpha.1', '-v, --version')
+  .option('versions', 'output all the covalent versions in a npm project')
+  .option('gen-e2e-report', 'generate the e2e coverage report')
+  .option('start-e2e-proxy', 'start the e2e proxy')
+  .option('e2e-for-coverage', 'runs the end to end tests against the e2e proxy')
   .option('serve', 'starts the ng server')
   .option('serve-e2e', 'starts the ng server with flags needed to run e2e coverage')
   .option('e2e', 'runs the end to end tests against local code base')
@@ -26,7 +26,7 @@ program
   .option('build', 'builds the code')
   .parse(process.argv);
 
-if (program.allVersions) (new Versions()).execute();
+if (program.versions) (new Versions()).execute();
 if (program.genE2eReport) (new GenerateE2EReport()).execute();
 if (program.startE2eProxy) (new StartE2EProxy()).execute();
 if (program.serve) (new NgWrapper()).execute(['serve', '--proxy-config', 'proxy.conf.json']);

@@ -24,24 +24,24 @@ cov -h
 
   Options:
 
-    -V, --version           output the version number
-    -v, --all-versions      output the version information
-    -g, --gen-e2e-report    generate the e2e coverage report
-    -s, --start-e2e-proxy   start the e2e proxy
-    -e, --e2e-for-coverage  runs the end to end tests against the e2e proxy
-    serve                   starts the ng server
-    serve-e2e               starts the ng server with flags needed to run e2e coverage
-    e2e                     runs the end to end tests against local code base
-    lint                    runs the linter
-    test                    runs the unit tests
-    build                   builds the code
-    -h, --help              output usage information
+    -v, --version     output the version number
+    versions          output all the covalent versions in a npm project
+    gen-e2e-report    generate the e2e coverage report
+    start-e2e-proxy   start the e2e proxy
+    e2e-for-coverage  runs the end to end tests against the e2e proxy
+    serve             starts the ng server
+    serve-e2e         starts the ng server with flags needed to run e2e coverage
+    e2e               runs the end to end tests against local code base
+    lint              runs the linter
+    test              runs the unit tests
+    build             builds the code
+    -h, --help        output usage information
 ```
 
 #### Versions
 * Prints out all versions numbers for Covalent CLI, Covalent Version, Angular, Angular Material Version, and Angular CLI for the directory you are currently in
 ```
-cov -v
+cov versions
 ```
 
 #### ng Commands
@@ -63,9 +63,7 @@ cov e2e
 
 * Runs the end to end tests against the e2e proxy. Same as `ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050`
 ```
-cov -e
-or
-cov --e2e-for-coverage
+cov e2e-for-coverage
 ```
 
 * Same as `ng test --code-coverage --single-run --sourcemap=false`
@@ -90,9 +88,7 @@ cov lint
 
 * Starts the e2e coverage proxy 
 ```
-cov -s
-or
-cov --start-e2e-proxy
+cov start-e2e-proxy
 ```
 
 * Start the ng server with the needed e2e flags:
@@ -102,16 +98,12 @@ cov serve-e2e
 
 * Run the e2e tests with needed flags:
 ```
-cov -e
-or
-cov --e2e-for-coverage
+cov e2e-for-coverage
 ```
 
 * Generate the e2e coverage report
 ```
-cov -g
-or
-cov --gen-e2e-report
+cov gen-e2e-report
 ```
 
 
