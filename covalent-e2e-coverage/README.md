@@ -21,28 +21,32 @@ Read the [was-tested Code coverage proxy](https://glebbahmutov.com/blog/code-cov
 To instrument e2e coverage for a Typescript project do the following:
 
 * Clone this repository
-* cd covalent-e2e-coverage
-* Startup the covalent-e2e-coverage proxy in this repo by running `npm run start`
-* Checkout another repo that has e2e tests in it
-* Edit the package.json in the other repo to run in production mode, but with source maps turned on:
+* npm i
+* npm run build
+* npm install -g
+* Startup the covalent-e2e-coverage proxy in this repo by running:
 ```
-"scripts": {
-"serve:prod": "node --max_old_space_size=5048 ./node_modules/.bin/ng serve --aot --prod --sourcemap=true --build-optimizer --proxy-config proxy.conf.json",
-...
-}
+cov start-e2e-proxy
 ```
-* Start up the above repo with e2e tests in it with the command `npm run serve:prod`
-* Edit the package.json of the repo that has the e2e tests in it to point to the covalent-e2e-coverage proxy instead (default runs on port 5050):
+
+* Checkout another repo that has e2e tests in it in a new terminal window
+* cd to that directory
+* Start the ng server with the needed flags by running command:
 ```
-"scripts": {
-"e2e": "ng e2e -pc proxy.conf.json --no-serve --base-href=http://localhost:5050",
-...
-}
+cov serve-e2e
 ```
-* Run the e2e tests from above with the command, `npm run e2e`
-* After completed either hit the genreport endpoint: http://localhost:5050/__genreport
-or 
-* Run the npm script to generate the report: `npm run genreport`
+
+* Open another terminal window and cd again to the directory that has the e2e tests in it
+* Run the e2e tests with needed flags by running command:
+```
+cov e2e-for-coverage
+```
+
+* Open another terminal window and generate the coverage report with the command:
+```
+cov gen-e2e-report
+```
+
 * In the browser go to: http://localhost:5050/__report/
 * See Coverage Report
 * Click down into links and see Typescript files

@@ -29,7 +29,7 @@ console.log(pkg.name, 'starting in', process.cwd())
 la(check.unemptyString(program.target), 'missing target server url', program)
 
 function prepareSaveDir () {
-  var saveToFolder = './'
+  var saveToFolder = __dirname + '/e2e-coverage';
   if (!fs.existsSync(saveToFolder)) {
     fs.mkdirSync(saveToFolder)
   }
