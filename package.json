@@ -68,7 +68,7 @@
     "node-sass": "3.8.0",
     "phantomjs-prebuilt": "2.1.14",
     "protractor": "~5.1.0",
-    "require-dir": "0.3.0",
+    "require-dir": "0.3.2",
     "semver": "5.2.0",
     "rimraf": "^2.6.2",
     "@types/node": "^8.0.53",
