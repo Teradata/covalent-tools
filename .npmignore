@@ -4,7 +4,19 @@
 /**/dist
 /deploy
 /tmp
-/bin
+
+# dev directories/files to ignore
+.github/
+scripts/
+docs/
+src/
+yarn.lock
+gulpfile.js
+.gitignore
+.gitattributes
+.npmignore
+.editorconfig
+tsconfig.json
 
 # dependencies
 /node_modules

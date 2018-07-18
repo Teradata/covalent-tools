@@ -1,6 +1,6 @@
 {
   "name": "@covalent/tools",
-  "version": "1.0.0-alpha.1",
+  "version": "2.0.0-beta.2",
   "private": true,
   "description": "Tooling, Scripts, and CLI for Covalent Applications",
   "keywords": [
@@ -24,16 +24,12 @@
     "bump-patch": "gulp bump-version --ver patch",
     "bump-minor": "gulp bump-version --ver minor",
     "bump-major": "gulp bump-version --ver major",
-    "build:release": "bash scripts/build-release",
+    "build:watch": "npm run build:release -- -w",
+    "build:release": "rm -rf ./bin && tsc --outDir bin",
     "publish:npm": "npm run build:release && bash scripts/npm-publish",
     "release:start": "bash scripts/start-release",
     "release:finish": "bash scripts/finish-release",
-    "generate:changelog": "./node_modules/.bin/conventional-changelog -i docs/CHANGELOG.md -s -p angular",
-    "clean": "rimraf bin",
-    "tsc": "tsc --outDir bin",
-    "build": "npm run clean && npm run tsc",
-    "tsc:watch": "npm run build && npm run tsc -- -w",
-    "all": "npm run build && npm pack && npm -g install covalent-tooling-1.0.0-rc.2.tgz"
+    "generate:changelog": "./node_modules/.bin/conventional-changelog -i docs/CHANGELOG.md -s -p angular"
   },
   "engines": {
     "node": ">=8.9.4",
@@ -50,7 +46,7 @@
   "license": "MIT",
   "author": "Teradata UX",
   "dependencies": {
-    "colors": "^1.2.0-rc0",
+    "colors": "^1.3.0",
     "node-emoji": "^1.8.1"
   },
   "devDependencies": {
@@ -77,7 +73,7 @@
     "stylelint": "^8.4.0",
     "ts-node": "^3.0.4",
     "tslint": "^5.9.1",
-    "typescript": "~2.6.2",
+    "typescript": "~2.7.2",
     "uglify-js": "^2.8.14",
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-stats-plugin": "^0.1.5",

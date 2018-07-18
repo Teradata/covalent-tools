@@ -13,15 +13,9 @@ git pull origin master
 echo "Checking out develop branch"
 git checkout develop
 
-echo "Execute tslint test"
-npm run tslint
-
-echo "Execute stylelint test"
-npm run stylelint
-
-echo "Execute unit tests"
-npm run test
-
 echo "Execute release build test"
 npm run build:release
-rm -rf deploy
+rm -rf ./bin
+
+echo "Bump to version v$version"
+gulp bump-version --ver $version
