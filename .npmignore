@@ -16,7 +16,7 @@ gulpfile.js
 .gitattributes
 .npmignore
 .editorconfig
-tsconfig.json
+./tsconfig.json
 
 # dependencies
 /node_modules
