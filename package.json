@@ -1,7 +1,6 @@
 {
   "name": "@covalent/tools",
   "version": "2.0.0-beta.1",
-  "private": true,
   "description": "Tooling, Scripts, and CLI for Covalent Applications",
   "keywords": [
     "angular",
