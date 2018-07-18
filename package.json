@@ -13,16 +13,7 @@
     "covalent": "./bin/covalent.js"
   },
   "scripts": {
-    "lint": "npm run tslint && npm run stylelint",
-    "tslint": "./node_modules/.bin/tslint --format codeFrame -c ./tslint.json \"./src/**/*.ts\" -e \"./src/**/typings.d.ts\" -e \"./src/environments/**\"",
-    "stylelint": "./node_modules/.bin/stylelint 'src/**/*.scss' '!**/_layout.scss' '!**/markdown.component.scss' --config .stylelintrc.json --syntax scss",
-    "preinstall": "rm -rf node_modules tmp deploy dist",
-    "postinstall": "npm rebuild node-sass && webdriver-manager update",
-    "test": "ng test --code-coverage --single-run --sourcemap=false",
-    "bump-dev": "gulp bump-version",
-    "bump-patch": "gulp bump-version --ver patch",
-    "bump-minor": "gulp bump-version --ver minor",
-    "bump-major": "gulp bump-version --ver major",
+    "lint": "./node_modules/.bin/tslint --format codeFrame -c ./tslint.json \"./src/**/*.ts\"",
     "build:watch": "npm run build:release -- -w",
     "build:release": "rm -rf ./bin && tsc --outDir bin",
     "publish:npm": "npm run build:release && bash scripts/npm-publish",
