@@ -11,7 +11,7 @@ To run the covalent tools cli do the following:
 
 * Clone this repository
 * npm i
-* npm run build
+* npm run build:release
 * npm install -g
 
 #### The following commands are available in the CLI
