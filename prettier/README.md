@@ -18,7 +18,7 @@ If you use stylelint, install [stylelint-config-prettier](https://github.com/pre
 
 ## Modify linter configs
 
-Add the installed linter rule sets to the end of the rule sets that you extend in their respective config files. For example:
+Update appropriate linter configs to have the newly installed linter rule sets at the end of the extends arrays. For example:
 
 `stylelintrc.json`
 
