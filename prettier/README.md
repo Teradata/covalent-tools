@@ -4,32 +4,21 @@
 
 Install [Prettier](https://github.com/prettier/prettier)
 
-`npm install prettier --save-dev`
+`yarn add prettier --dev`
 
 Install appropriate linter rule sets that disable rules that would conflict with Prettier.
 
 If you use TSLint, install [tslint-config-prettier](https://github.com/prettier/tslint-config-prettier)
 
-`npm install tslint-config-prettier --save-dev`
+`yarn add tslint-config-prettier --dev`
 
 If you use stylelint, install [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier)
 
-`npm install stylelint-config-prettier --save-dev`
+`yarn add stylelint-config-prettier --dev`
 
 ## Modify linter configs
 
 Update appropriate linter configs to have the newly installed linter rule sets at the end of the extends arrays. For example:
-
-`stylelintrc.json`
-
-```json
-{
-  "extends": [
-    "./node_modules/@covalent/tools/lint/stylelint/.stylelintrc.json",
-    "stylelint-config-prettier"
-  ]
-}
-```
 
 `tslint.json`
 
@@ -38,6 +27,17 @@ Update appropriate linter configs to have the newly installed linter rule sets a
   "extends": [
     "./node_modules/@covalent/tools/lint/tslint/tslint.json",
     "tslint-config-prettier"
+  ]
+}
+```
+
+`stylelintrc.json`
+
+```json
+{
+  "extends": [
+    "./node_modules/@covalent/tools/lint/stylelint/.stylelintrc.json",
+    "stylelint-config-prettier"
   ]
 }
 ```
@@ -65,12 +65,12 @@ Create a `.prettierignore` file at the root level. This could a copy of your `.g
 
 Install [husky](https://github.com/typicode/husky)
 
-`npm install husky --save-dev`
+`yarn add husky --dev`
 
 
 Install [pretty-quick](https://github.com/azz/pretty-quick)
 
-`npm install pretty-quick --save-dev`
+`yarn add pretty-quick --dev`
 
 Add the following to your `package.json`
 
@@ -84,6 +84,6 @@ Add the following to your `package.json`
 
 ## Run Prettier
 
-`npm run prettier`
+`yarn prettier`
 
 Enjoy!
