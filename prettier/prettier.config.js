@@ -8,5 +8,5 @@ module.exports = {
   bracketSpacing: true,
   arrowParens: 'always',
   proseWrap: 'preserve',
-  htmlWhitespaceSensitivity: 'css',
+  htmlWhitespaceSensitivity: 'ignore',
 };
