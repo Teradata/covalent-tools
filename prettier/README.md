@@ -77,7 +77,7 @@ Add the following to your `package.json`
 ```json
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged --no-restage"
+      "pre-commit": "pretty-quick --staged --no-restage --bail"
     }
   },
 ```
