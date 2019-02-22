@@ -54,43 +54,43 @@ cov versions
 cov serve
 ```
 * Starts up the ng server with needed flags
-* Same as `ng serve --proxy-config proxy.conf.js --sourceMap=true`
+* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng serve --proxy-config proxy.conf.js --sourceMap=true`
 
 ```
 cov serve-prod
 ```
 * Starts the ng server with flags needed to run e2e coverage
-* Same as `ng serve --proxy-config proxy.conf.js --sourceMap=true --aot --prod --optimization`
+* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng serve --proxy-config proxy.conf.js --sourceMap=true --aot --prod --optimization`
 
 ```
 cov e2e
 ```
 * Runs the end to end tests against local code base
-* Same as `ng e2e`
+* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng e2e`
 
 ```
 cov e2e-for-coverage
 ```
 * Runs the end to end tests against the e2e proxy
-* Same as `ng e2e --baseUrl=http://localhost:5050 --devServerTarget=`
+* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng e2e --baseUrl=http://localhost:5050 --devServerTarget=`
 
 ```
 cov test
 ```
 * Runs the unit tests
-* Same as `ng test --sourceMap=false --code-coverage --watch=false`
+* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng test --sourceMap=false --code-coverage --watch=false`
 
 ```
 cov build
 ```
 * Compiles the code with needed flags
-* Same as `ng build --sourceMap=false`
+* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng build --sourceMap=false`
 
 ```
 cov build-prod
 ```
 * Compiles the code with needed flags
-* Same as `ng build --sourceMap=false --aot --prod --optimization`
+* Same as `node --max_old_space_size=8192 ./node_modules/.bin/ng build --sourceMap=false --aot --prod --optimization`
 
 #### tslint
 ```
