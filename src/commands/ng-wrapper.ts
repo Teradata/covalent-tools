@@ -6,12 +6,14 @@ import { emoji } from 'node-emoji';
 import Versions from './versions';
 import { Utils } from '../utils/utils';
 
+const INC_MEM_FLAG = '--max_old_space_size=8192';
+
 export default class NgWrapper implements iCommand {
   execute(commands: string[]) {
     new Versions().execute();
     Utils.log('Running Command:');
-    Utils.log('node_modules/.bin/ng ' + commands.join(' '), italic);
-    const ng = spawn('node_modules/.bin/ng', commands);
+    Utils.log(`${INC_MEM_FLAG} ./node_modules/.bin/ng ${commands.join(' ')}`, italic);
+    const ng = spawn('node', [INC_MEM_FLAG, './node_modules/.bin/ng', ...commands]);
 
     ng.stdout.on('data', data => {
       Utils.log(`${data}`);

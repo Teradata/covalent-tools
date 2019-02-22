@@ -14,13 +14,13 @@
     "check-more-types": "2.20.2",
     "ecstatic": "3.1.1",
     "http-proxy": "1.13.2",
-    "istanbul": "0.4.3",
+    "istanbul": "^0.4.5",
     "lazy-ass": "1.4.0",
     "optimist": "0.6.1",
     "quote": "0.4.0",
     "rimraf": "2.5.2",
     "update-notifier": "0.6.3",
-    "ws": "1.1.0",
+    "ws": "^6.1.4",
     "remap-istanbul": "0.9.6"
   },
   "devDependencies": {
@@ -61,7 +61,7 @@
     "test": "echo Write tests",
     "local-demo-server": "http-server -p 3003 -c-1 test/simple-server",
     "local-demo-proxy": "node index.js --target http://localhost:3003",
-    "start": "mkdirp e2e-coverage && cd e2e-coverage && node ../index.js --target http://localhost:4200 --instrument main.*.bundle.js",
+    "start": "mkdirp e2e-coverage && cd e2e-coverage && node ../index.js --target http://localhost:4200 --instrument main.*.js",
     "genreport": "cd e2e-coverage && ../node_modules/.bin/remap-istanbul -i ../e2e-coverage/coverage.json -t html -o ../e2e-coverage/html-report --exclude node_modules,.*-optimizer.js,\\\\\\(webpack\\\\\\).*,.*.html"
   }
 }
