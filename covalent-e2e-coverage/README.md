@@ -40,7 +40,7 @@ cov serve-prod
 cov e2e-for-coverage
 ```
 
-* Open another terminal window and generate the coverage report by running the command:
+* Open another terminal window in this repo and generate the coverage report by running the command:
 ```
 cov gen-e2e-report
 ```
