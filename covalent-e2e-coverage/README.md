@@ -21,7 +21,6 @@ To instrument e2e coverage for a Typescript project do the following:
 * `npm i`
 * `cd ..`
 * `npm run build:release`
-* `cd ./covalent-e2e-coverage`
 * `npm install -g`
 * Startup the covalent-e2e-coverage proxy in this repo by running:
 ```
