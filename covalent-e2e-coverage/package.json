@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "http-server": "0.9.0",
-    "pre-git": "3.8.3",
     "semantic-release": "6.2.1",
     "standard": "6.0.8",
     "standard-format": "2.1.1",
@@ -56,8 +55,6 @@
     "demo-foo-bar": "node index.js --target http://glebbahmutov.com/foo-bar/ --host glebbahmutov.com",
     "format": "standard-format -w *.js src/*.js",
     "lint": "standard --verbose *.js src/*.js",
-    "pretest": "npm run format && npm run lint",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "echo Write tests",
     "local-demo-server": "http-server -p 3003 -c-1 test/simple-server",
     "local-demo-proxy": "node index.js --target http://localhost:3003",
