@@ -1,7 +1,5 @@
 {
-  "plugins": [
-    "./selector-no-deprecated-deep/index.js"
-  ],
+  "plugins": ["./selector-no-deprecated-deep/index.js"],
   "rules": {
     "td/selector-no-deprecated-deep": true,
     "color-hex-case": "lower",
@@ -19,18 +17,7 @@
     "string-quotes": "single",
     "unit-case": "lower",
     "unit-no-unknown": true,
-    "unit-whitelist": [
-      "px",
-      "%",
-      "deg",
-      "ms",
-      "em",
-      "vh",
-      "vw",
-      "vmin",
-      "s",
-      "rem"
-    ],
+    "unit-whitelist": ["px", "%", "deg", "ms", "em", "vh", "vw", "vmin", "s", "rem"],
     "value-list-comma-space-after": "always-single-line",
     "value-list-comma-space-before": "never",
     "shorthand-property-no-redundant-values": true,
@@ -39,9 +26,7 @@
     "declaration-block-no-duplicate-properties": [
       true,
       {
-        "ignore": [
-          "consecutive-duplicates-with-different-values"
-        ]
+        "ignore": ["consecutive-duplicates-with-different-values"]
       }
     ],
     "declaration-block-trailing-semicolon": "always",
@@ -52,9 +37,7 @@
     "declaration-block-semicolon-newline-after": "always-multi-line",
     "declaration-property-value-blacklist": [
       {
-        "/.*/": [
-          "initial"
-        ]
+        "/.*/": ["initial"]
       },
       {
         "message": "The `initial` value is not supported in IE."
@@ -77,10 +60,9 @@
     "selector-pseudo-element-case": "lower",
     "selector-pseudo-element-colon-notation": "double",
     "selector-pseudo-element-no-unknown": [
-      true, {
-        "ignorePseudoElements": [
-          "ng-deep"
-        ]
+      true,
+      {
+        "ignorePseudoElements": ["ng-deep"]
       }
     ],
     "selector-type-case": "lower",

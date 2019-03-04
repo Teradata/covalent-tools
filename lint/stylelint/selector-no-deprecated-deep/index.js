@@ -4,28 +4,28 @@ const isStandardSyntaxSelector = require('stylelint/lib/utils/isStandardSyntaxSe
 
 const ruleName = 'td/selector-no-deprecated-deep';
 const messages = stylelint.utils.ruleMessages(ruleName, {
-  expected: selector => `Usage of the /deep/ in "${selector}" is not allowed. Please use ng-deep instead`,
+  expected: (selector) => `Usage of the /deep/ in "${selector}" is not allowed. Please use ng-deep instead`,
 });
-
 
 /**
  * Stylelint plugin that prevents uses of /deep/ in selectors.
  */
-const plugin = stylelint.createPlugin(ruleName, isEnabled => {
+const plugin = stylelint.createPlugin(ruleName, (isEnabled) => {
   return (root, result) => {
     if (!isEnabled) return;
 
-    root.walkRules(rule => {
-      if (rule.parent.type === 'rule' &&
+    root.walkRules((rule) => {
+      if (
+        rule.parent.type === 'rule' &&
         isStandardSyntaxRule(rule) &&
         isStandardSyntaxSelector(rule.selector) &&
-        rule.selector.includes('/deep/')) {
-
+        rule.selector.includes('/deep/')
+      ) {
         stylelint.utils.report({
           result,
           ruleName,
           message: messages.expected(rule.selector),
-          node: rule
+          node: rule,
         });
       }
     });

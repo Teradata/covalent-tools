@@ -4,17 +4,17 @@
 
 Install [Prettier](https://github.com/prettier/prettier)
 
-`yarn add prettier --dev`
+`npm install prettier --save-dev`
 
 Install appropriate linter rule sets that disable rules that would conflict with Prettier.
 
 If you use TSLint, install [tslint-config-prettier](https://github.com/prettier/tslint-config-prettier)
 
-`yarn add tslint-config-prettier --dev`
+`npm install tslint-config-prettier --save-dev`
 
 If you use stylelint, install [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier)
 
-`yarn add stylelint-config-prettier --dev`
+`npm install stylelint-config-prettier --save-dev`
 
 ## Modify linter configs
 
@@ -24,10 +24,7 @@ Update appropriate linter configs to have the newly installed linter rule sets a
 
 ```json
 {
-  "extends": [
-    "./node_modules/@covalent/tools/lint/tslint/tslint.json",
-    "tslint-config-prettier"
-  ]
+  "extends": ["./node_modules/@covalent/tools/lint/tslint/tslint.json", "tslint-config-prettier"]
 }
 ```
 
@@ -35,10 +32,7 @@ Update appropriate linter configs to have the newly installed linter rule sets a
 
 ```json
 {
-  "extends": [
-    "./node_modules/@covalent/tools/lint/stylelint/.stylelintrc.json",
-    "stylelint-config-prettier"
-  ]
+  "extends": ["./node_modules/@covalent/tools/lint/stylelint/.stylelintrc.json", "stylelint-config-prettier"]
 }
 ```
 
@@ -51,26 +45,34 @@ var defaultConfig = require('./node_modules/@covalent/tools/prettier/prettier.co
 module.exports = defaultConfig;
 ```
 
-Create a `.prettierignore` file at the root level. This could a copy of your `.gitignore`.
+Create a `.prettierignore` file at the root level and include files you do not want to prettify. Example:
+
+```
+node_modules
+package-lock.json
+yarn.lock
+/bin
+/deploy
+/**/dist
+```
 
 ## Create an npm script
 
 `package.json`
-```
+
+```json
 "prettier": "./node_modules/.bin/prettier --write './**/*.{ts,js,json,css,scss,html,yml,md}'",
 ```
 
 ## Setup a pre commit hook
 
-
 Install [husky](https://github.com/typicode/husky)
 
-`yarn add husky --dev`
-
+`npm install husky --save-dev`
 
 Install [pretty-quick](https://github.com/azz/pretty-quick)
 
-`yarn add pretty-quick --dev`
+`npm install pretty-quick --save-dev`
 
 Add the following to your `package.json`
 
@@ -84,6 +86,20 @@ Add the following to your `package.json`
 
 ## Run Prettier
 
-`yarn prettier`
+`npm run prettier`
 
 Enjoy!
+
+## Bonus
+
+Verify that checked-in code has been prettified as part of the CI/CD pipeline.
+
+Add the following script
+
+```json
+"prettier:check": "./node_modules/.bin/prettier --check './**/*.{ts,js,json,css,scss,html,yml,md}'"
+```
+
+Check that code has been prettified:
+
+`npm run prettier:check`

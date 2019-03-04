@@ -2,7 +2,6 @@ import { Color } from 'colors';
 import { emojify } from 'node-emoji';
 
 export class Utils {
-
   static log(message: string, colors?: Color): void {
     if (colors) {
       /* tslint:disable-next-line */

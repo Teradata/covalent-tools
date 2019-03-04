@@ -10,6 +10,6 @@ function onButtonClick() {
   alert('Thank you for clicking the button');
 }
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#btn').addEventListener('click', onButtonClick);
 });
