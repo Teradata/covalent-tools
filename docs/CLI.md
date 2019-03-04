@@ -13,7 +13,6 @@ To run the covalent tools cli do the following:
 - `npm i`
 - `cd ..`
 - `npm run build:release`
-- `cd ./covalent-e2e-coverage`
 - `npm install -g`
 
 #### The following commands are available in the CLI
