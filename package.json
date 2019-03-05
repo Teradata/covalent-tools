@@ -19,12 +19,18 @@
     "publish:npm": "npm run build:release && bash scripts/npm-publish",
     "release:start": "bash scripts/start-release",
     "release:finish": "bash scripts/finish-release",
-    "generate:changelog": "./node_modules/.bin/conventional-changelog -i docs/CHANGELOG.md -s -p angular"
+    "generate:changelog": "./node_modules/.bin/conventional-changelog -i docs/CHANGELOG.md -s -p angular",
+    "prettier": "./node_modules/.bin/prettier --write './**/*.{ts,js,json,css,scss,html,yml,md}'",
+    "prettier:check": "./node_modules/.bin/prettier --check './**/*.{ts,js,json,css,scss,html,yml,md}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged --no-restage --bail"
+    }
   },
   "engines": {
     "node": ">=8.9.4",
-    "npm": ">=5",
-    "yarn": ">=1.3.2"
+    "npm": ">=5"
   },
   "repository": {
     "type": "git",
@@ -40,12 +46,16 @@
     "node-emoji": "^1.8.1"
   },
   "devDependencies": {
+    "@types/node": "^8.0.53",
+    "@types/node-emoji": "^1.8.0",
     "autoprefixer": "7.1.2",
     "codelyzer": "~4.1.0",
+    "commander": "^2.14.1",
     "conventional-changelog-cli": "^2.0.12",
     "gulp": "^4.0.0",
     "gulp-bump": "2.1.0",
     "gulp-help": "1.6.1",
+    "husky": "^1.3.1",
     "jasmine-core": "~2.5.2",
     "karma": "^4.0.0",
     "karma-chrome-launcher": "~2.0.0",
@@ -57,19 +67,19 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "node-sass": "^4.11.0",
     "phantomjs-prebuilt": "^2.1.16",
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0",
     "protractor": "^5.4.2",
     "require-dir": "0.3.2",
-    "semver": "5.2.0",
     "rimraf": "^2.6.2",
-    "@types/node": "^8.0.53",
-    "@types/node-emoji": "^1.8.0",
+    "semver": "5.2.0",
     "stylelint": "^8.4.0",
     "ts-node": "^3.0.4",
     "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~2.7.2",
     "uglify-js": "^2.8.14",
     "webpack-bundle-analyzer": "^2.9.1",
-    "webpack-stats-plugin": "^0.1.5",
-    "commander": "^2.14.1"
+    "webpack-stats-plugin": "^0.1.5"
   }
 }

@@ -34,7 +34,15 @@ if (program.versions) {
 } else if (program.serve) {
   new NgWrapper().execute(['serve', '--proxy-config', 'proxy.conf.js', '--sourceMap=true']);
 } else if (program.serveProd) {
-  new NgWrapper().execute(['serve', '--proxy-config', 'proxy.conf.js', '--sourceMap=true', '--aot', '--prod', '--optimization']);
+  new NgWrapper().execute([
+    'serve',
+    '--proxy-config',
+    'proxy.conf.js',
+    '--sourceMap=true',
+    '--aot',
+    '--prod',
+    '--optimization',
+  ]);
 } else if (program.e2e) {
   new NgWrapper().execute(['e2e']);
 } else if (program.e2eForCoverage) {
@@ -46,7 +54,15 @@ if (program.versions) {
 } else if (program.buildProd) {
   new NgWrapper().execute(['build', '--sourceMap=false', '--aot', '--prod', '--optimization']);
 } else if (program.lint) {
-  new TsLintWrapper().execute(['-c', './tslint.json', './src/**/*.ts', '-e', './src/**/typings.d.ts', '-e', './src/environments/**']);
+  new TsLintWrapper().execute([
+    '-c',
+    './tslint.json',
+    './src/**/*.ts',
+    '-e',
+    './src/**/typings.d.ts',
+    '-e',
+    './src/environments/**',
+  ]);
 } else if (program.startE2eProxy) {
   new StartE2EProxy().execute();
 } else if (program.genE2eReport) {

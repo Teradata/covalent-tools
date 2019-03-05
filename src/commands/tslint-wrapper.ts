@@ -13,11 +13,11 @@ export default class TsLintWrapper implements iCommand {
     Utils.log('node_modules/.bin/tslint ' + commands.join(' '), italic);
     const tslint = spawn('node_modules/.bin/tslint', commands);
 
-    tslint.stdout.on('data', data => {
+    tslint.stdout.on('data', (data) => {
       Utils.log(`${data}`);
     });
 
-    tslint.stderr.on('data', data => {
+    tslint.stderr.on('data', (data) => {
       Utils.log(`${data}`);
     });
     Utils.log('');

@@ -15,16 +15,17 @@ Covalent Tools is a set of tools to help with building, testing, and deploying C
 
 ## Setup
 
-* Ensure you have Node 8.9.4+ and NPM 5+ (or Yarn 1.3.2+) installed.
-* Install Angular CLI `npm i -g @angular/cli`
-* Install Typescript `npm i -g typescript`
-* Install TSLint `npm install -g tslint`
-* Install Protractor for e2e testing `npm install -g protractor`
-* Install Node packages `npm install`
-* If using yarn locally, `npm rebuild node-sass` is required for https://github.com/yarnpkg/yarn/issues/1981 as of `v0.22.0`
+- Ensure you have Node 8.9.4+ and NPM 5+ (or Yarn 1.3.2+) installed.
+- Install Angular CLI `npm install -g @angular/cli`
+- Install Typescript `npm install -g typescript`
+- Install TSLint `npm install -g tslint`
+- Install Protractor for e2e testing `npm install -g protractor`
+- Install Node packages `npm install`
+- If using yarn locally, `npm rebuild node-sass` is required for https://github.com/yarnpkg/yarn/issues/1981 as of `v0.22.0`
+
 ---
 
 ## Usage
 
-* [CLI](docs/CLI.md)
-* [E2E Testing Coverage](covalent-e2e-coverage)
+- [CLI](docs/CLI.md)
+- [E2E Testing Coverage](covalent-e2e-coverage)
