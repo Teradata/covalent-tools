@@ -9,4 +9,5 @@ module.exports = {
   arrowParens: 'always',
   proseWrap: 'preserve',
   htmlWhitespaceSensitivity: 'ignore',
+  quoteProps: 'consistent',
 };
