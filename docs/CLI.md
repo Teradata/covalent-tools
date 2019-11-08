@@ -8,9 +8,9 @@ CLI (Command Line Interface) for Covalent.
 
 To run the covalent tools cli do the following:
 
-- `npm i`
+- `npm ci`
 - `cd ./covalent-e2e-coverage`
-- `npm i`
+- `npm ci`
 - `cd ..`
 - `npm run build:release`
 - `npm install -g`
