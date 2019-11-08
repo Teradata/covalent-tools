@@ -1,2 +1,2 @@
-var defaultConfig = require('./node_modules/@covalent/core/common/configs/prettier/prettier.config.js');
+var defaultConfig = require('./node_modules/@covalent/coding-standards/prettier/prettier.config.js');
 module.exports = defaultConfig;

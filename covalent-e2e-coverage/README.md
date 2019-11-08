@@ -14,9 +14,9 @@ Read the [was-tested Code coverage proxy](https://glebbahmutov.com/blog/code-cov
 
 To instrument e2e coverage for a Typescript project do the following:
 
-- `npm i`
+- `npm ci`
 - `cd ./covalent-e2e-coverage`
-- `npm i`
+- `npm ci`
 - `cd ..`
 - `npm run build:release`
 - `npm install -g`

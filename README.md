@@ -20,7 +20,7 @@ Covalent Tools is a set of tools to help with building, testing, and deploying C
 - Install Typescript `npm install -g typescript`
 - Install TSLint `npm install -g tslint`
 - Install Protractor for e2e testing `npm install -g protractor`
-- Install Node packages `npm install`
+- Install Node packages `npm ci`
 - If using yarn locally, `npm rebuild node-sass` is required for https://github.com/yarnpkg/yarn/issues/1981 as of `v0.22.0`
 
 ---
