@@ -51,7 +51,7 @@
     "gulp-bump": "2.1.0",
     "gulp-help": "1.6.1",
     "jasmine-core": "~2.5.2",
-    "karma": "^4.0.0",
+    "karma": "^6.3.14",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
     "karma-coverage-istanbul-reporter": "^0.3.0",
